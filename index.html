@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
     <link rel="stylesheet" href="./assets/style/style.css" />
     <title>Bookshelf Apps</title>
   </head>
   <body>
     <header class="bookshelf-header">
-      <h1>Bookshelf Apps</h1>
-      <p>Kelola daftar buku anda disini!</p>
+      <h2>Bookshelf Apps</h2>
     </header>
     <main>
       <aside class="aside-input-book">
@@ -20,7 +19,7 @@
         </div>
         <form action="#" class="form-input" id="form-input-book">
           <div class="input">
-            <label for="book_title">Judul</label>
+            <label for="book-title">Judul</label>
             <input type="text" id="book-title" required />
           </div>
           <div class="input">
@@ -38,14 +37,14 @@
           <button type="submit" id="submit-book">Masukkan Buku ke Rak <span class="type-book">Belum selesai dibaca</span></button>
         </form>
       </aside>
-      <section class="section_books">
-        <div class="header_content">
-          <h1>Daftar Buku Anda</h1>
+      <section class="section-books">
+        <div class="content-header">
+          <h2>Daftar Buku Anda</h2>
         </div>
-        <div class="search_book">
-          <form action="#" id="form_search" class="form_search">
+        <div class="search">
+          <form action="#" id="form-search" class="form-search">
             <input type="text" class="search-book" placeholder="Cari buku anda..." />
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit"><i class="bx bx-search-alt"></i></button>
           </form>
         </div>
         <div class="books">
@@ -53,13 +52,13 @@
             <div class="header">
               <h1>Belum selesai dibaca</h1>
             </div>
-            <div class="book_items" id="uncompletedBook"></div>
+            <div class="book-items" id="uncompletedBook"></div>
           </div>
           <div class="status">
             <div class="header">
               <h1>Selesai dibaca</h1>
             </div>
-            <div class="book_items" id="completedBook"></div>
+            <div class="book-items" id="completedBook"></div>
           </div>
         </div>
       </section>

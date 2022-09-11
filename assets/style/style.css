@@ -1,8 +1,13 @@
+:root {
+  --main-color: #00abe1;
+  --second-color: #161f6d;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
 }
 main {
   display: flex;
@@ -13,35 +18,50 @@ section {
   height: 100vh;
 }
 .bookshelf-header {
-  margin-left: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60%;
+}
+.bookshelf-header > h2 {
+  font-size: 50px;
+  font-weight: bold;
+}
+.bookshelf-header > p {
+  font-size: 25px;
+  margin-top: -20px;
 }
 .aside-input-book {
-  width: 70%;
+  position: fixed;
+  width: 37%;
   height: 103vh;
   display: flex;
   flex-direction: column;
-  background-color: #ccc;
-  margin-top: -7%;
+  background-color: var(--main-color);
+  color: #fff;
+  z-index: 1;
 }
 .aside-form-header > h2 {
   font-size: 50px;
   text-align: center;
-  font-weight: 500;
+  font-weight: bold;
   margin: 20% 0 15% 0;
 }
 .form-input {
+  width: 80%;
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  justify-content: center;
+  margin-left: 8%;
 }
 .input {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 10px 30px;
+  margin: 15px 0;
 }
 .input > input {
-  width: 75%;
+  width: 100%;
   height: 55px;
   border: 1px solid transparent;
   border-radius: 10px;
@@ -52,12 +72,10 @@ section {
   margin-bottom: 5px;
 }
 .checkbox-book {
-  width: 80%;
   display: flex;
   flex-direction: row;
-  gap: 20px;
   align-center: center;
-  margin: 10px 0 20px 30px;
+  margin: 20px 0;
 }
 #book-status {
   width: 25px;
@@ -72,10 +90,110 @@ section {
   height: 70px;
   border-radius: 10px;
   border: 1px solid transparent;
+  background-color: var(--second-color);
+  color: #fff;
   font-size: 26px;
-  margin-left: 15%;
   margin-top: 20px;
+  margin-left: 20%;
+}
+#submit-book:hover {
+  opacity: 0.8px;
 }
 .type-book {
   font-weight: bold;
+}
+.section-books {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7%;
+  margin-left: 40%;
+}
+.header-content > h2 {
+  font-size: 40px;
+  margin-top: 25%;
+}
+.search-book {
+  width: 100%;
+}
+.form-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.form-search > input {
+  width: 60%;
+  height: 50px;
+  font-size: 23px;
+  border-radius: 10px;
+}
+.form-search > button {
+  width: 70px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--second-color);
+  color: #fff;
+  font-size: 35px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.form-search > button:hover {
+  opacity: 0.8;
+}
+.books {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.content-header > h2 {
+  text-align: center;
+  font-size: 30px;
+}
+.book-card {
+  width: 450px;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.book-card-content > h2 {
+  font-size: 35px;
+}
+.book-card-content > h4 {
+  font-size: 30px;
+}
+.book-card-content > p {
+  font-size: 25px;
+}
+.action {
+  display: flex;
+  gap: 10px;
+}
+.btnHapus,
+.btnStatus {
+  width: 200px;
+  height: 35px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.btnHapus {
+  background-color: #ec243b;
+  color: #fff;
+  font-size: 15px;
+}
+.btnStatus {
+  background-color: #24a0ed;
+  color: #fff;
+  font-size: 15px;
+}
+.btnHapus:hover,
+.btnStatus:hover {
+  opacity: 0.7;
 }

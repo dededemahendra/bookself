@@ -63,6 +63,7 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
+//Fungsi menghapus Value pada form saat diinput
 function clearFromData() {
   const inputTitle = document.getElementById("book-title");
   const inputAuthor = document.getElementById("book-author");
@@ -76,28 +77,29 @@ function clearFromData() {
   checkbox.checked = false;
   spanText.innerText = "Belum selesai dibaca";
 }
-
+//Fungsi untuk membuat Card untuk menampilkan data
 function makeBook(bookObject) {
   const { id, title, author, year, isCompleted } = bookObject;
 
-  const textTitle = document.createElement("h1");
+  const textTitle = document.createElement("h2");
   textTitle.innerText = title;
 
-  const textAuthor = document.createElement("p");
+  const textAuthor = document.createElement("h4");
   textAuthor.innerText = author;
 
   const textYear = document.createElement("p");
   textYear.innerText = year;
 
   const textContainer = document.createElement("div");
-  textContainer.classList.add("book_content");
+  textContainer.classList.add("book-card-content");
   textContainer.append(textTitle, textAuthor, textYear);
 
   const container = document.createElement("div");
-  container.classList.add("book_card");
+  container.classList.add("book-card");
   container.append(textContainer);
   container.setAttribute("id", `book-${id}`);
 
+  //button delete pada card
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("btnHapus");
   deleteButton.innerText = "Hapus buku";
@@ -107,6 +109,7 @@ function makeBook(bookObject) {
     }
   });
 
+  //Perbandingan status buku
   if (isCompleted) {
     const toggleButton = document.createElement("button");
     toggleButton.classList.add("btnStatus");
@@ -138,6 +141,7 @@ function makeBook(bookObject) {
   return container;
 }
 
+//Fungsi untuk pencarian buku
 function searchBook() {
   const searchText = document.querySelector(".search-book").value;
   const localStorageItem = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -159,7 +163,7 @@ function searchBook() {
     document.dispatchEvent(new Event(RENDER_EVENT));
   }
 }
-
+//Fungsi untuk menambahkan buku
 function addBook() {
   const bookTitle = document.getElementById("book-title").value;
   const bookAuthor = document.getElementById("book-author").value;
@@ -189,21 +193,7 @@ function toggleBookStatus(bookId) {
   saveData();
 }
 
-function updateBook(book) {
-  const inputTitle = document.querySelector(".modal_judul").value;
-  const inputAuthor = document.querySelector(".modal_penulis").value;
-  const inputYear = document.querySelector(".modal_tahun").value;
-  const checkboxStatus = document.querySelector(".modal_status").checked;
-
-  book.title = inputTitle;
-  book.author = inputAuthor;
-  book.year = inputYear;
-  book.isCompleted = checkboxStatus;
-
-  document.dispatchEvent(new Event(RENDER_EVENT));
-  saveData();
-}
-
+//Fungsi untuk menghapus buku
 function deleteBook(bookId) {
   const bookTarget = findBookIndex(bookId);
 
@@ -216,7 +206,7 @@ function deleteBook(bookId) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const submitForm = document.querySelector("#form-input-book");
-  const submitSearch = document.querySelector("#form_search");
+  const submitSearch = document.querySelector("#form-search");
 
   submitForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -238,6 +228,7 @@ document.addEventListener(SAVED_EVENT, () => {
   console.log("Data berhasil disimpan");
 });
 
+//Event untuk menampikan buku
 document.addEventListener(RENDER_EVENT, function () {
   const uncompletedBookList = document.querySelector("#uncompletedBook");
   const completedBookList = document.querySelector("#completedBook");
