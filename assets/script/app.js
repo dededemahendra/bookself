@@ -104,7 +104,7 @@ function makeBook(bookObject) {
   deleteButton.classList.add("btnHapus");
   deleteButton.innerText = "Hapus buku";
   deleteButton.addEventListener("click", function () {
-    if (confirm("Yakin ingin menghapus buku?")) {
+    if (confirm("Apa Anda yakin ingin menghapus buku?")) {
       deleteBook(id);
     }
   });
